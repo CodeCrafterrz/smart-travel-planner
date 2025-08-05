@@ -1,5 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
@@ -9,18 +8,11 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Smart Travel Planner API is running 🚀");
+  res.json({ message: "Smart Travel Planner API is running 🚀" });
+
 });
 
 const PORT = process.env.PORT || 5000;
-// mongoose.connect(process.env.MONGO_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// }).then(() => {
-//   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-// }).catch((err) => console.log(err));
-
-// mongoose.connect(...).then().catch();
 app.listen(PORT, () =>
   console.log(`Server running on port ${PORT}`)
 );
