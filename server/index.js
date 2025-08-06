@@ -3,15 +3,15 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({
-  apiKey: "AIzaSyBbVHwrJutwQJMJwbYsealpvYGRQaZPHQ4",
-});
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(express.json());
 
+const ai = new GoogleGenAI({
+  apiKey: process.env.GENAI_KEY,
+});
 app.get("/", (req, res) => {
   res.json({ message: "Smart Travel Planner API is running 🚀" });
 });
